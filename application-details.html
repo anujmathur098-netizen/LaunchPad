@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPLICATION DETAILS</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="application-details.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    <nav>
+        <h1>Application Details</h1>
+        <div class="nav-actions">
+            <button type="button" onclick="window.location.href='apply.html';">Edit application</button>
+            <button type="button" onclick="window.location.href='index.html';">Home</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <p>YOUR STARTUP APPLICATION</p>
+        <h2>Your vision, in one place.</h2>
+        <span>Review the details you submitted for your startup.</span>
+    </header>
+
+    <main class="application-layout">
+        <section id="emptyState" class="panel empty-state" hidden>
+            <h2>No application saved yet</h2>
+            <p>Complete the application form to view your details here.</p>
+            <button type="button" onclick="window.location.href='apply.html';">Apply now</button>
+        </section>
+
+        <section id="applicationDetails" class="panel" hidden>
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">SAVED APPLICATION</p>
+                    <h2 id="startupTitle">Your startup</h2>
+                </div>
+                <div class="application-actions">
+                    <span class="saved-label">Saved locally</span>
+                    <button id="deleteApplication" class="delete-button" type="button">Delete application</button>
+                </div>
+            </div>
+
+            <div class="details-grid">
+                <section class="detail-section">
+                    <h3>Personal info</h3>
+                    <dl id="personalDetails"></dl>
+                </section>
+                <section class="detail-section">
+                    <h3>Company</h3>
+                    <dl id="companyDetails"></dl>
+                </section>
+                <section class="detail-section full-width">
+                    <h3>Your vision</h3>
+                    <dl id="visionDetails"></dl>
+                </section>
+                <section class="detail-section full-width">
+                    <h3>Services requested</h3>
+                    <div id="serviceTags" class="service-tags"></div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const application = JSON.parse(localStorage.getItem("startupApplication"));
+
+const emptyState = document.getElementById("emptyState");
+const applicationDetails = document.getElementById("applicationDetails");
+
+if (application == null) {
+
+    emptyState.hidden = false;
+
+} else {
+
+    applicationDetails.hidden = false;
+
+    document.getElementById("startupTitle").textContent =
+        application.startupName;
+
+    // Personal Information
+    document.getElementById("personalDetails").innerHTML = `
+        <dt>Founder Name</dt>
+        <dd>${application.founderName}</dd>
+
+        <dt>Email</dt>
+        <dd>${application.email}</dd>
+
+        <dt>Phone</dt>
+        <dd>${application.phone}</dd>
+    `;
+
+    // Company Information
+    document.getElementById("companyDetails").innerHTML = `
+        <dt>Startup Name</dt>
+        <dd>${application.startupName}</dd>
+
+        <dt>Industry</dt>
+        <dd>${application.industry}</dd>
+
+        <dt>Stage</dt>
+        <dd>${application.stage}</dd>
+
+        <dt>Team Size</dt>
+        <dd>${application.teamSize}</dd>
+    `;
+
+    // Vision
+    document.getElementById("visionDetails").innerHTML = `
+        <dt>Problem</dt>
+        <dd>${application.problem}</dd>
+
+        <dt>Solution</dt>
+        <dd>${application.solution}</dd>
+
+        <dt>Challenge</dt>
+        <dd>${application.challenge}</dd>
+
+        <dt>Funding</dt>
+        <dd>${application.funding}</dd>
+
+        <dt>Goal</dt>
+        <dd>${application.goal}</dd>
+    `;
+
+    // Services
+    document.getElementById("serviceTags").textContent =
+        application.services.join(", ");
+
+    // Delete Application
+    document.getElementById("deleteApplication").addEventListener("click", function () {
+
+        const answer = confirm("Delete this application?");
+
+        if (answer) {
+
+            localStorage.removeItem("startupApplication");
+
+            location.reload();
+
+        }
+
+    });
+
+}
+    </script>
+    <footer class="site-footer">
+        <div><h2>LaunchPad</h2><p>Helping ambitious ideas take their next step.</p></div>
+        <nav class="footer-links" aria-label="Footer navigation"><a href="about.html">About</a><a href="services.html">Services</a><a href="apply.html">Apply</a><a href="legal.html">Legal</a></nav>
+        <p class="copyright">&copy; 2026 LaunchPad. All rights reserved. Developed by Anuj Mathur &middot; <a href="mailto:anujmathur098@gmail.com">anujmathur098@gmail.com</a></p>
+    </footer>
+</body>
+</html>
+

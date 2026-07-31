@@ -1,0 +1,224 @@
+﻿
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: #f7faff;
+    font-family: Arial, Helvetica, sans-serif;
+    background:black;
+}
+
+ nav{
+     display:flex;
+    justify-content:space-between;
+      align-items:center;
+      margin: 0px ;
+      position: sticky;
+      padding: 20px;
+    top:0;
+    z-index: 10;
+    background: rgba(8, 9, 12, .82);
+ object-fit:cover;
+     opacity: 100%;
+     border-bottom: 1px solid white;
+}
+
+
+
+nav button {
+    padding: 10px 22px;
+    border: 1px solid white;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    background: black;
+   
+}
+nav button:hover{
+    color: black;
+    background-color: #f7faff;
+}
+
+.butt{  display:flex;
+    gap: 20px;
+}
+
+.investor-connect {
+    max-width:100%;
+    padding:30px 40px;
+    box-sizing: border-box;
+
+}
+
+
+.connect-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 18px;
+}
+
+.panel,
+.stats article {
+    border: 1px solid white;
+    background: black;
+}
+
+.panel {
+    padding: 23px;
+}
+
+
+
+.event-row {
+    min-height: 66px;
+    display: grid;
+    grid-template-columns: 47px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid rgba(163, 190, 219, 0.1);
+}
+
+.event-row time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+}
+
+
+.event-row time span {
+    margin-top: 4px;
+    color: #a5b5c6;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.event-row h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.event-row p {
+    margin: 4px 0 0;
+    color: #8e9fb1;
+    font-size: 11px;
+}
+
+.event-row button {
+    padding: 8px 11px;
+    border: 1px solid  #c68062 ;
+    border-radius: 5px;
+    color:  #c68062;
+    cursor: pointer;
+    font-weight: bold;
+    background: black;
+}
+.event-row button:hover {
+    background-color:  #c68062;
+    color: black;
+}
+
+
+.partners {
+    min-height: 185px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    text-align: center;
+}
+
+.partners span {
+    display: block;
+}
+
+.accel {
+    font-family: Georgia, serif;
+    font-size: 29px;
+}
+
+.matrix {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 0.8;
+}
+
+.partners small {
+    display: block;
+    font-size: 9px;
+    font-weight: normal;
+}
+
+.sequoia {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.blume {
+    color: #bcd3e9;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.blume small {
+    margin-left: 29px;
+    font-size: 10px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.stats article {
+    min-height: 91px;
+    padding: 17px 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stat-icon {
+    color: #d6a51f;
+    font-size: 26px;
+}
+
+.stats strong {
+    font-size: 20px;
+}
+
+.stats p {
+    margin: 4px 0 0;
+    color: #a9b7c5;
+    font-size: 11px;
+}
+
+ .bottom{
+    /* Extend the connection artwork beyond the main content padding. */
+    width: calc(100% + 80px);
+    margin-left: -40px;
+
+    aspect-ratio:2720 / 811;
+    background-image:url("connection.png");
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    background-size:100% 100%;
+    pointer-events:none;
+ }
+
+@media (max-width: 640px) {
+    nav { padding: 15px 20px; align-items: flex-start; gap: 14px; flex-direction: column; }
+    nav h1 { margin: 0; font-size: 1.25rem; }
+    .butt { width: 100%; gap: 10px; }
+    nav button { flex: 1; padding: 10px 12px; font-size: .82rem; }
+    .investor-connect { padding: 24px 16px; }
+    .connect-grid, .stats { grid-template-columns: 1fr; }
+    .panel { padding: 18px; }
+    .event-row { grid-template-columns: 42px 1fr; gap: 10px; padding: 12px 0; }
+    .event-row button { grid-column: 2; justify-self: start; }
+    .bottom { width: calc(100% + 32px); margin-left: -16px; }
+}
+

@@ -1,0 +1,123 @@
+﻿body{
+    min-height: 100vh;
+    margin: 0;
+    background-color: black;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+    overflow-x:hidden;
+    background-image: url('tree.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+
+}
+
+ nav{
+     display:flex;
+    justify-content:space-between;
+      align-items:center;
+      margin: 0px ;
+      position: sticky;
+      padding: 20px;
+    top:0;
+    z-index: 10;
+    background: rgba(8, 9, 12, .82);
+ object-fit:cover;
+     opacity: 100%;
+     border-bottom: 1px solid white;
+}
+          
+
+nav h1{
+    color: pink;
+}
+nav button{
+     padding:12px 25px;
+    border:1px solid white;
+    background:transparent;
+    color:white;
+    border-radius:30px;
+    cursor:pointer;
+}
+nav button:hover{
+    background-color: white;
+    color: black;
+}
+
+.services-layout {
+    min-height: calc(100vh - 86px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5vw 32px;
+    box-sizing: border-box;
+}
+
+.service-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.service-card {
+    width: 220px;
+    aspect-ratio: 1;
+    padding: 12px;
+    box-sizing: content-box;
+    border:1px solid rgba(253, 251, 251, 0.989);
+    background: rgba(10, 4, 8, 0.72);
+    position: relative;
+    overflow: hidden;
+    color: white;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgb(252, 81, 165);
+    box-shadow: 0 16px 30px rgb(252, 81, 165);
+}
+
+.service-card::after {
+    content: "";
+    position: absolute;
+    inset: -60%;
+    background: linear-gradient(110deg, transparent 42%, rgba(255, 255, 255, 0.22) 50%, transparent 58%);
+    transform: translateX(-55%) rotate(8deg);
+    transition: transform 550ms ease;
+    pointer-events: none;
+}
+
+.service-card:hover::after {
+    transform: translateX(55%) rotate(8deg);
+}
+
+
+
+.service-card i {
+    font-size: 40px;
+    color:pink;
+}
+
+.service-card span {
+    color:rgb(113, 160, 123);
+    font-weight: bold;
+}
+.service-card p{
+    color:#b9c1cc;
+}
+
+@media (max-width: 640px) {
+    body { background-attachment: scroll; background-size: auto 65%; }
+    nav { padding: 15px 20px; }
+    nav h1 { margin: 0; font-size: 1.25rem; }
+    nav button { padding: 9px 16px; }
+    .services-layout { min-height: auto; display: grid; grid-template-columns: 1fr; gap: 18px; padding: 28px 20px 38px; }
+    .service-cards { gap: 18px; }
+    .service-card { width: 100%; min-height: 215px; aspect-ratio: auto; box-sizing: border-box; }
+}
+

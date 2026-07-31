@@ -1,0 +1,122 @@
+﻿body{ min-height: 100vh;
+    margin: 0;
+    background-color: black;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+    overflow-x:hidden;
+    display:flex;
+    flex-direction:column;
+
+}
+
+
+    nav{
+     display:flex;
+    justify-content:space-between;
+      align-items:center;
+      margin: 0px ;
+      position: sticky;
+      padding: 20px;
+    top:0;
+    z-index: 10;
+    background: rgba(8, 9, 12, .82);
+ object-fit:cover;
+     opacity: 100%;
+     border-bottom: 1px solid white;
+}
+
+    nav h1{
+    color: #F4763C;
+}
+nav button{
+     padding:12px 25px;
+    border:1px solid white;
+    background:transparent;
+    color:white;
+    border-radius:30px;
+    cursor:pointer;
+}
+nav button:hover{
+    background-color: white;
+    color: black;
+}
+
+.text{
+    max-width:760px;
+    padding:30px 40px;
+}
+
+
+.vision-mission{
+    display:grid;
+    gap:24px;
+    padding:20px 40px;
+}
+
+.values-section{
+    padding:20px 40px;
+}
+
+.purpose-card{
+    flex:1;
+    padding:28px;
+    border:1px solid white;
+    background: black;
+    overflow: hidden;
+    transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.purpose-card h2{
+    margin:14px;
+    color: white;
+    font-size:26px;
+}
+
+.purpose-card p{
+    margin:0;
+    color:#d1d1d1;
+    line-height:1.6;
+}
+
+
+ .bottom{
+    width: 100%;
+
+    aspect-ratio:2720 / 811;
+    background-image:url("grass.png");
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    background-size:100% 100%;
+    pointer-events:none;
+ }
+
+ .purpose-card:hover{
+    transform:translateY(-8px) scale(1.02);
+    border-color:#de8257;
+    box-shadow:0 16px 30px #F4763C;
+}
+
+.purpose-card::after{
+    content:"";
+    position:absolute;
+    inset:-60%;
+    background:linear-gradient(110deg, transparent 42%, rgba(255,255,255,0.22) 50%, transparent 58%);
+    transform:translateX(-55%) rotate(8deg);
+    transition:transform 550ms ease;
+    pointer-events:none;
+}
+
+.purpose-card:hover::after{
+    transform:translateX(55%) rotate(8deg);
+}
+
+@media (max-width: 640px) {
+    nav { padding: 15px 20px; }
+    nav h1 { font-size: 1.25rem; }
+    nav button { padding: 9px 16px; }
+    .text, .vision-mission, .values-section { padding-right: 20px; padding-left: 20px; }
+    .text { padding-top: 24px; }
+    .purpose-card { padding: 20px; }
+    .purpose-card h2 { margin: 0 0 12px; font-size: 1.4rem; }
+}
+

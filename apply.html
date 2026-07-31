@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPLY NOW </title>
+    <link rel="icon" href="logo.png">
+     <link rel="stylesheet" href="apply.css">
+   
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+     <nav>
+            <h1>Apply Now</h1>
+            <div>
+                <button type="button" onclick="window.location.href='application-details.html';">View application</button>
+                <button type="button" onclick="window.location.href='index.html';">Home</button>
+            </div>
+        </nav>
+    <div class="hero">
+        <video class="background-video" autoplay muted loop playsinline aria-hidden="true">
+            <source src="pink.mp4" type="video/mp4">
+        </video>
+        
+        
+        <div class="hero-copy">
+            <p>BUILD WHAT'S NEXT</p>
+            <h2>Bring your idea to life.</h2>
+            
+        </div>
+    </div>
+
+    <main class="application-layout">
+        <section class="form-panel" aria-labelledby="application-title">
+            <p>STARTUP APPLICATION</p>
+            <h2>Tell us about your vision</h2>
+            <p>Share a few details so we can understand your startup and how to support its next step.</p>
+
+            <form id="applicationForm">
+                <div class="form-columns">
+                <fieldset class="personal-info">
+                    <h3>Personal info</h3>
+                    <label for="founderName">Founder name</label>
+                    <input id="founderName" name="founderName" type="text" autocomplete="name" required>
+
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required>
+
+                    <label for="phone">Phone number</label>
+                    <input id="phone" name="phone" type="tel" autocomplete="tel">
+                </fieldset>
+
+                <fieldset class="company-info">
+                    <h3>Company</h3>
+                    <label for="startupName">Startup name</label>
+                    <input id="startupName" name="startupName" type="text" required>
+
+                    <label for="industry">Industry</label>
+                    <input id="industry" name="industry" type="text" placeholder="e.g. Fintech, Healthtech">
+
+                    <label for="stage">Current stage</label>
+                    <select id="stage" name="stage">
+                        <option value="">Select a stage</option>
+                        <option>Idea</option>
+                        <option>Prototype</option>
+                        <option>Early traction</option>
+                        <option>Growth</option>
+                    </select>
+
+                    <label for="teamSize">Team size</label>
+                    <input id="teamSize" name="teamSize" type="number" min="1" placeholder="Number of people">
+                    <label for="problem">What problem are you solving?</label>
+                    <textarea id="problem" name="problem" rows="3"></textarea>
+
+                    <label for="solution">Describe your solution</label>
+                    <textarea id="solution" name="solution" rows="3"></textarea>
+
+                    <label for="challenge">Biggest challenge right now</label>
+                    <textarea id="challenge" name="challenge" rows="3"></textarea>
+
+                    <label for="funding">Funding status</label>
+                    <input id="funding" name="funding" type="text" placeholder="e.g. Bootstrapped, pre-seed">
+
+                    <label for="goal">Your next 6-12 month goal</label>
+                    <textarea id="goal" name="goal" rows="3"></textarea>
+                    <p >Services you need</p>
+                    <div class="service-options">
+                        <label><input name="services" value="mentorship" type="checkbox"> Mentorship</label>
+                        <label><input name="services" value="funding" type="checkbox"> Funding assistance</label>
+                        <label><input name="services" value="investors" type="checkbox"> Investor connect</label>
+                        <label><input name="services" value="legal" type="checkbox"> Legal support</label>
+                        <label><input name="services" value="technical" type="checkbox"> Technical support</label>
+                    </div>
+                </fieldset>
+                </div>
+
+                <button class="submit-button" type="submit">Submit application</button>
+                <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        
+    </main>
+    <script>
+        const form = document.getElementById("applicationForm");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            // Get checked services
+            const services = [];
+            document.querySelectorAll('input[name="services"]:checked').forEach(service => {
+                services.push(service.value);
+            });
+
+            // Create object
+            const application = {
+                founderName: document.getElementById("founderName").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                startupName: document.getElementById("startupName").value,
+                industry: document.getElementById("industry").value,
+                stage: document.getElementById("stage").value,
+                teamSize: document.getElementById("teamSize").value,
+                problem: document.getElementById("problem").value,
+                solution: document.getElementById("solution").value,
+                challenge: document.getElementById("challenge").value,
+                funding: document.getElementById("funding").value,
+                goal: document.getElementById("goal").value,
+                services: services
+            };
+
+            localStorage.setItem("startupApplication", JSON.stringify(application));
+
+            alert("Application Saved!");
+            window.location.href = "application-details.html";
+        });
+    </script>
+    <footer class="site-footer">
+        <div><h2>LaunchPad</h2><p>Helping ambitious ideas take their next step.</p></div>
+        <nav class="footer-links" aria-label="Footer navigation"><a href="about.html">About</a><a href="services.html">Services</a><a href="apply.html">Apply</a><a href="legal.html">Legal</a></nav>
+        <p class="copyright">&copy; 2026 LaunchPad. All rights reserved. Developed by Anuj Mathur &middot; <a href="mailto:anujmathur098@gmail.com">anujmathur098@gmail.com</a></p>
+    </footer>
+</body>
+</html>
+

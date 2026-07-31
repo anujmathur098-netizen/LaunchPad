@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LaunchPad AI â€” your intelligent startup mentor.">
+    <title>LaunchPad AI | Startup Mentor</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    <nav>
+            <h1>AI Assistant</h1>
+            <div class="nav-actions">
+               <button type="button" onclick="window.location.href='services.html';">Back To Services</button>
+                <button type="button" onclick="window.location.href='index.html';">Home</button>
+            </div>
+        </nav>
+    <section class="hero" aria-labelledby="hero-title">
+        <video class="background-video" autoplay muted loop playsinline aria-hidden="true">
+            <source src="pink.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay">
+            <div class="hero-copy">
+                <p>LAUNCHPAD AI</p>
+                <h1 id="hero-title">Build your next big idea with a mentor by your side.</h1>
+            </div>
+    
+        </div>
+    </section>
+    <main class="page-shell">
+        <section class="chatbot" aria-label="LaunchPad AI chatbot">
+            <header class="chat-header">
+                <div>
+                    <p class="eyebrow">LAUNCHPAD AI</p>
+                    <h2>Your startup mentor, on demand.</h2>
+                    <p class="brand-subtitle">Your Intelligent Startup Mentor</p>
+                    <p class="application-instruction">Want feedback tailored to your startup? Copy and paste your application details into the chat, or open your saved application first.</p>
+                    <button class="application-button" type="button" onclick="window.location.href='application-details.html';">My Application</button>
+                </div>
+                <span class="status"><span aria-hidden="true"></span> Online</span>
+            </header>
+
+            <div id="chatMessages" class="messages" aria-live="polite" aria-label="Chat messages"></div>
+
+            <section class="suggestions" aria-label="Suggested prompts">
+                <p>Get started with a prompt</p>
+                <div id="suggestionList" class="suggestion-list">
+                    <button type="button" data-prompt="Validate my startup idea">Validate my startup idea</button>
+                    <button type="button" data-prompt="Generate a startup roadmap">Generate a startup roadmap</button>
+                    <button type="button" data-prompt="Create an MVP plan">Create an MVP plan</button>
+                    <button type="button" data-prompt="Marketing strategy">Marketing strategy</button>
+                    <button type="button" data-prompt="Investor pitch help">Investor pitch help</button>
+                    <button type="button" data-prompt="Funding advice">Funding advice</button>
+                    <button type="button" data-prompt="Business model suggestions">Business model suggestions</button>
+                    <button type="button" data-prompt="Competitor analysis">Competitor analysis</button>
+                </div>
+            </section>
+
+            <form id="chatForm" class="input-area">
+                <label class="sr-only" for="messageInput">Ask LaunchPad AI a question</label>
+                <textarea id="messageInput" rows="1" placeholder="Ask anything about your startup..." autocomplete="off" required></textarea>
+                <button id="sendButton" class="send-button" type="submit" aria-label="Send message">
+                    <span>Send</span><span aria-hidden="true">â†‘</span>
+                </button>
+            </form>
+            <p class="input-hint">Press Enter to send Â· Shift + Enter for a new line</p>
+        </section>
+    </main>
+
+
+    <footer class="site-footer">
+        <div><h2>LaunchPad</h2><p>Helping ambitious ideas take their next step.</p></div>
+        <nav class="footer-links" aria-label="Footer navigation"><a href="about.html">About</a><a href="services.html">Services</a><a href="apply.html">Apply</a><a href="legal.html">Legal</a></nav>
+        <p class="copyright">&copy; 2026 LaunchPad. All rights reserved. Developed by Anuj Mathur &middot; <a href="mailto:anujmathur098@gmail.com">anujmathur098@gmail.com</a></p>
+    </footer>
+    <script src="chatbot.js"></script>
+</body>
+</html>
+
