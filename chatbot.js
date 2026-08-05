@@ -1,4 +1,4 @@
-const API_KEY = "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";
+const API_KEY = "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";
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
 const MODEL = "llama-3.3-70b-versatile";
 
@@ -14,29 +14,25 @@ const conversation = [
 ];
 
 function addMessage(role, text) {
-
     const p = document.createElement("p");
 
     if (role === "user") {
-        p.innerHTML = "<strong>You:</strong> " + text;
+        p.innerHTML = `<strong>You:</strong> ${text}`;
     } else {
-        p.innerHTML = "<strong>LaunchPad AI:</strong> " + text;
+        p.innerHTML = `<strong>LaunchPad AI:</strong> ${text}`;
     }
 
     chatMessages.appendChild(p);
-
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-chatForm.addEventListener("submit", async function (event) {
+chatForm.addEventListener("submit", async (event) => {
 
-    event.preventDefault();   // Stops the page from refreshing
+    event.preventDefault();
 
     const userMessage = messageInput.value.trim();
 
-    if (userMessage === "") {
-        return;
-    }
+    if (!userMessage) return;
 
     addMessage("user", userMessage);
 
@@ -50,25 +46,25 @@ chatForm.addEventListener("submit", async function (event) {
     try {
 
         const response = await fetch(API_URL, {
-
             method: "POST",
-
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${API_KEY}`
             },
-
             body: JSON.stringify({
-
                 model: MODEL,
-
                 messages: conversation
-
             })
-
         });
 
         const data = await response.json();
+
+        console.log("Status:", response.status);
+        console.log("Response:", data);
+
+        if (!response.ok) {
+            throw new Error(data.error?.message || "Request failed");
+        }
 
         const reply = data.choices[0].message.content;
 
@@ -81,11 +77,10 @@ chatForm.addEventListener("submit", async function (event) {
 
     } catch (error) {
 
-        console.log(error);
+        console.error(error);
 
-        addMessage("assistant", "Something went wrong.");
+        addMessage("assistant", error.message);
 
     }
 
 });
-
