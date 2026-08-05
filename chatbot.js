@@ -1,4 +1,5 @@
-const API_URL = "/api/chat";
+const API_KEY = "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";
+const API_URL = "https://api.groq.com/openai/v1/chat/completions";
 const MODEL = "llama-3.3-70b-versatile";
 
 const chatForm = document.getElementById("chatForm");
@@ -48,15 +49,13 @@ chatForm.addEventListener("submit", async function (event) {
 
     try {
 
-        // Send the conversation to a server-side endpoint. The server should store the API key
-        // in an environment variable and forward this request to the provider. This keeps the
-        // API key out of client-side code.
         const response = await fetch(API_URL, {
 
             method: "POST",
 
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${API_KEY}`
             },
 
             body: JSON.stringify({
@@ -69,14 +68,9 @@ chatForm.addEventListener("submit", async function (event) {
 
         });
 
-        if (!response.ok) {
-            const errText = await response.text();
-            throw new Error(`Server responded ${response.status}: ${errText}`);
-        }
-
         const data = await response.json();
 
-        const reply = data.choices?.[0]?.message?.content || data.reply || "(no reply)";
+        const reply = data.choices[0].message.content;
 
         conversation.push({
             role: "assistant",
@@ -94,3 +88,4 @@ chatForm.addEventListener("submit", async function (event) {
     }
 
 });
+
