@@ -1,4 +1,4 @@
-const API_KEY = "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";
+const API_KEY = "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";
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
 const MODEL = "llama-3.3-70b-versatile";
 
