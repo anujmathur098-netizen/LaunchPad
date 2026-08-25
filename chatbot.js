@@ -1,6 +1,6 @@
-const API_KEY = "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";
+const API_KEY = "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";
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
-const MODEL = "llama-3.3-70b-versatile";
+const MODEL = "openai/gpt-oss-20b";
 
 const chatForm = document.getElementById("chatForm");
 const messageInput = document.getElementById("messageInput");
